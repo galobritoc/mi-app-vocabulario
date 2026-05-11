@@ -1,0 +1,23 @@
+name: Enviar Palabra Diaria
+on:
+  schedule:
+    - cron: '0 12 * * *' # Esto es 08:00 AM en Chile (UTC-4)
+  workflow_dispatch: # Permite ejecutarlo manualmente para probar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Instalar dependencias
+        run: pip install twilio
+      - name: Ejecutar script
+        env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+        run: python main.py
