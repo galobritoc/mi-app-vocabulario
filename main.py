@@ -40,7 +40,7 @@ def enviar_whatsapp():
         message = client.messages.create(
             from_='whatsapp:+14155238886', # Asegúrate que este sea el número que te dio Twilio
             body=mensaje,
-            to='whatsapp:+569XXXXXXXX'     # PON TU NÚMERO AQUÍ CON +569
+            to='whatsapp:+56989488615'     # PON TU NÚMERO AQUÍ CON +569
         )
         print(f"Éxito: Mensaje enviado con ID {message.sid}")
     except Exception as e:
