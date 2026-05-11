@@ -28,7 +28,7 @@ def enviar_whatsapp():
     message = client.messages.create(
         from_='whatsapp:+14155238886', # Número de Twilio
         body=mensaje,
-        to='whatsapp:+569XXXXXXXX'     # TU NÚMERO
+        to='whatsapp:+56989488615'     # TU NÚMERO
     )
     print(f"Mensaje enviado: {message.sid}")
 
